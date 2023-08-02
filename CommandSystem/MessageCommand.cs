@@ -2,7 +2,7 @@
 {
     public class MessageCommand : IMessageCommand, ITextCommand
     {
-        private readonly ICommand? _step;
+        protected ICommand? _step;
 
         public MessageCommand(string message, ICommand? command = null)
         {
