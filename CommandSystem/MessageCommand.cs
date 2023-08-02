@@ -1,13 +1,17 @@
 ﻿namespace CommandSystem
 {
-    public class MessageCommand : CommandContainer, IMessageCommand, ITextCommand
+    public class MessageCommand : IMessageCommand, ITextCommand
     {
+        private readonly ICommand? _step;
+
         public MessageCommand(string message, ICommand? command = null)
         {
             Message = message;
             _step = command;
         }
+
         public string Message { get; init; }
+
         public ICommand? Execute(string? text)
         {
             if (!string.IsNullOrWhiteSpace(text)
